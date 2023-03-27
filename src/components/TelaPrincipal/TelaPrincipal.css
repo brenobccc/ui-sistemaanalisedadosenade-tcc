@@ -1,0 +1,57 @@
+/* estilo da tela inteira */
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+/* estilo da div principal */
+#tela-principal {
+  display: flex;
+  height: 100%;
+}
+
+/* estilo do menu esquerdo */
+#menu-navegacao {
+  width: 15%;
+  height: 100%;
+  background-color: #E3DFDF;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#menu-navegacao #menu{
+    width: 100%;
+    height: 100%;
+    background-color: #5665EF;
+    /* border-radius: 50px; */
+}
+
+/* estilo do conteúdo principal */
+#principal-content {
+  width: 85%;
+  height: 100%;
+  padding-left: 20%;
+  background-color: #E3DFDF;
+  overflow-y: auto; /* barra de rolagem automática */
+}
+
+/* estilo do cabeçalho */
+#principal-content #pc-header {
+  width: 85%;
+  height: 200px; /* altura fixa */
+  background-color: #000000;
+  position: fixed;
+  top: 0;
+  right: 0;
+}
+
+/* estilo do conteúdo com barra de rolagem */
+#principal-content #pc-content {
+  width: 100%;
+  padding: 15px;
+  padding-top: 220px; /* espaço para o cabeçalho */
+  box-sizing: border-box;
+}
