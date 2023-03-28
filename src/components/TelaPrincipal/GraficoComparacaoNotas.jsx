@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import Chart from 'chart.js/auto';
 import './GraficosComparaNotas.css';
+import axios from "axios";
 
 export default function GraficoComparacaoNotas() {
 
@@ -12,6 +13,16 @@ export default function GraficoComparacaoNotas() {
         nome: "Universidade B",
         notas: [5.8, 6.1, 7.0, 6.9]
     };
+
+    useEffect(() => {
+        axios.get('http://localhost:8080/analiseenade/consulta-dados-por-ano-municipio-area-nomeies?anoInicial=2014&anoFinal=2021&municipio=Aracati&area=Ciência da Computação&nomeies=Instituto Federal de Educação, Ciência e Tecnologia do Ceará')
+            .then(response => {
+                console.log(response.data);
+            })
+            .catch(error => {
+                console.log(error);
+            });
+    });
 
     // Labels dos anos
     const labels = ["2010", "2014", "2017", "2021"]
@@ -42,7 +53,7 @@ export default function GraficoComparacaoNotas() {
 
     // Configurações do gráfico
     const options = {
-        
+
         responsive: false,
         //responsive: true,
         plugins: {
