@@ -7,15 +7,15 @@ export default function GraficoComparacaoNotas() {
 
     const ies1 = {
         nome: "Universidade A",
-        notas: [6.5, 7.2, 8.0, 6.8]
+        notas: ['undefined', '7.2', '7', '6.8']
     };
     const ies2 = {
         nome: "Universidade B",
-        notas: [5.8, 6.1, 7.0, 6.9]
+        notas: ['5.8', '6.1', '5', '6.9']
     };
 
     useEffect(() => {
-        axios.get('http://localhost:8080/analiseenade/consulta-dados-por-ano-municipio-area-nomeies?anoInicial=2014&anoFinal=2021&municipio=Aracati&area=Ciência da Computação&nomeies=Instituto Federal de Educação, Ciência e Tecnologia do Ceará')
+        axios.get('http://localhost:8080/analiseenade/consulta-dados-por-ano-municipio-area-nomeies?anoInicial=2014&anoFinal=2021&municipio1=Aracati&municipio2=Fortaleza&area=Ciência da Computação&nomeies1=Instituto Federal de Educação, Ciência e Tecnologia do Ceará&nomeies2=UNIVERSIDADE FEDERAL DO CEARÁ')
             .then(response => {
                 console.log(response.data);
             })
