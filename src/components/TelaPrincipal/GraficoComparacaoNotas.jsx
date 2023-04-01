@@ -1,102 +1,135 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Chart from 'chart.js/auto';
 import './GraficosComparaNotas.css';
 import axios from "axios";
 
-export default function GraficoComparacaoNotas() {
+export default function GraficoComparacaoNotas(props) {
+    const [ies1, setIes1] = useState({});
 
-    const ies1 = {
+    const [ies2, setIes2] = useState({});
+
+    const [labels, setLabels] = useState([]);
+
+    //const labels = ["2010", "2014", "2017", "2021"]
+
+    /*const ies1 = {
         nome: "Universidade A",
         notas: ['undefined', '7.2', '7', '6.8']
-    };
-    const ies2 = {
-        nome: "Universidade B",
-        notas: ['5.8', '6.1', '5', '6.9']
-    };
+    };*/
+    // const ies2 = {
+    //     nome: "Universidade B",
+    //     notas: ['5.8', '6.1', '5', '6.9']
+    // };
+    // Labels dos anos
+    //const labels = ["2009", "2011", "2013", "2015", "2017", "2019", "2021", "2023"];
+
+    // Dados do gráfico
+    const [myChart, setChart] = useState();
 
     useEffect(() => {
-        axios.get('http://localhost:8080/analiseenade/consulta-dados-por-ano-municipio-area-nomeies?anoInicial=2014&anoFinal=2021&municipio1=Aracati&municipio2=Fortaleza&area=Ciência da Computação&nomeies1=Instituto Federal de Educação, Ciência e Tecnologia do Ceará&nomeies2=UNIVERSIDADE FEDERAL DO CEARÁ')
+        var chart = Chart.getChart("myChart")
+        if (chart) {
+            chart.destroy();
+        }
+        // alert("chamou")
+        console.log(props)
+        //dados
+        const anoInicial = props.anoInicial
+        const anoFinal = props.anoFinal
+        const municipioIes1 = props.municipioIes1
+        const municipioIes2 = props.municipioIes2
+        const area = props.area
+        const nomeIes1 = props.nomeIes1
+        const nomeIes2 = props.nomeIes2
+
+        axios.get(`http://localhost:8080/analiseenade/consulta-dados-por-ano-municipio-area-nomeies?anoInicial=${anoInicial}&anoFinal=${anoFinal}&municipio1=${municipioIes1}&municipio2=${municipioIes2}&area=${area}&nomeies1=${nomeIes1}&nomeies2=${nomeIes2}`)
             .then(response => {
-                console.log(response.data);
+
+
+                console.log("codigo 1: " + JSON.stringify(response.data));
+                // setLabels(response.data[0]);
+                // setIes1({
+                //     nome: "Universidade A",
+                //     notas: response.data[1]
+                // });
+                // console.log("ies1: " + JSON.stringify(ies1));
+                // setIes2({
+                //     nome: "Universidade B",
+                //     notas: response.data[2]
+                // });
+
+                setChart(new Chart(document.getElementById("myChart").getContext("2d"), {
+                    type: "line",
+                    data: {
+                        labels: response.data[0],
+                        datasets: [
+                            {
+                                label: nomeIes1,
+                                data: response.data[1],
+                                borderColor: "red",
+                                backgroundColor: "rgba(255, 0, 0, 0.1)",
+                                fill: true,
+                                tension: 0.3
+                            },
+                            {
+                                label: nomeIes2,
+                                data: response.data[2],
+                                borderColor: "blue",
+                                backgroundColor: "rgba(0, 0, 255, 0.5)",
+                                fill: true,
+                                tension: 0.3
+                            }
+                        ]
+                    },
+                    options: {
+
+                        responsive: true,
+                        //responsive: true,
+                        plugins: {
+                            title: {
+                                display: true,
+                                text: "Notas das IES no Enade"
+                            },
+                            legend: {
+                                display: true,
+                                position: 'right'
+                            }
+                        },
+                        scales: {
+                            x: {
+                                title: {
+                                    display: true,
+                                    text: "Ano"
+                                }
+                            },
+                            y: {
+                                title: {
+                                    display: true,
+                                    text: "Nota"
+                                },
+                                ticks: {
+                                    beginAtZero: true
+                                }
+                            }
+                        }
+                    }
+                }));
             })
             .catch(error => {
                 console.log(error);
             });
-    });
 
-    // Labels dos anos
-    const labels = ["2010", "2014", "2017", "2021"]
-    //const labels = ["2009", "2011", "2013", "2015", "2017", "2019", "2021", "2023"];
+        // Configurações do gráfico
 
-    // Dados do gráfico
-    const data = {
-        labels: labels,
-        datasets: [
-            {
-                label: ies1.nome,
-                data: ies1.notas,
-                borderColor: "red",
-                backgroundColor: "rgba(255, 0, 0, 0.1)",
-                fill: true,
-                tension: 0.3
-            },
-            {
-                label: ies2.nome,
-                data: ies2.notas,
-                borderColor: "blue",
-                backgroundColor: "rgba(0, 0, 255, 0.5)",
-                fill: true,
-                tension: 0.3
-            }
-        ]
-    };
 
-    // Configurações do gráfico
-    const options = {
-
-        responsive: false,
-        //responsive: true,
-        plugins: {
-            title: {
-                display: true,
-                text: "Notas das IES no Enade"
-            },
-            legend: {
-                display: true,
-                position: 'right'
-            }
-        },
-        scales: {
-            x: {
-                title: {
-                    display: true,
-                    text: "Ano"
-                }
-            },
-            y: {
-                title: {
-                    display: true,
-                    text: "Nota"
-                },
-                ticks: {
-                    beginAtZero: true
-                }
-            }
-        }
-    };
-
-    useEffect(() => {
-        const ctx = document.getElementById("myChart").getContext("2d");
-        const myChart = new Chart(ctx, {
-            type: "line",
-            data: data,
-            options: options
-        });
-    }, []);
+    }, [props]);
 
     return (
-        <div id="chartjsexample">
-            <canvas id="myChart"></canvas>
-        </div>
+        <>
+            <div id="chartjsexample">
+                <canvas id="myChart"></canvas>
+            </div>
+            {/* <button onClick={() => { console.log(myChart) }}></button> */}
+        </>
     );
 }

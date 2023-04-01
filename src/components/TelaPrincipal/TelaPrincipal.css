@@ -35,25 +35,74 @@ body {
   min-width: 1100px;
   height: 100%;
   padding-left: 15%;
-  background-color: #E3DFDF;
+  background-color: #d4cfcf;
   overflow-y: auto; /* barra de rolagem automática */
 }
 
 /* estilo do cabeçalho */
 #principal-content #pc-header {
   width: 85%;
-  height: 200px; /* altura fixa */
-  background-color: #000000;
+  height: 250px; /* altura fixa */
+  background-color: #E3DFDF;
   position: fixed;
   top: 0;
   right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  padding: 15px;
+  box-sizing: border-box;
+}
+
+#pc-header font{
+  font-size: 28px;
+  margin-bottom: 0px;
+}
+
+#pc-header #pch-filtros{
+  width: 600px;
+  height: 100%;
+  border-radius: 15px;
+  background-color: #000000;
+  overflow: hidden;
+}
+
+#pch-filtros #filtros{
+  height: 78%;
+  background-color: #1e1e1f;
+  width: 100%;
+}
+#pch-filtros #filtros-button{
+  height: 22%;
+  /* background-color: #7c0c31; */
+  width: 100%;
+  display: flex;
+  justify-content: right;
+  padding-right: 15px;
+  box-sizing: border-box;
+  align-items: center;
+}
+
+#pch-filtros #filtros-button button{
+  height: 87%;
+  width: 40%;
+  background-color: #ffffff;
+  border: 0px solid black;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+
+#pch-filtros #filtros-button button:hover{
+  background-color: #a8a6a6;
 }
 
 /* estilo do conteúdo com barra de rolagem */
 #principal-content #pc-content {
   width: 100%;
   padding: 15px;
-  padding-top: 220px; /* espaço para o cabeçalho */
+  padding-top: 265px; /* espaço para o cabeçalho */
   box-sizing: border-box;
   display: flex;
   flex-wrap: wrap;
