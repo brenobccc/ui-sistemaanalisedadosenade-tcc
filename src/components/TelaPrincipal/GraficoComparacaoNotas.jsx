@@ -92,7 +92,7 @@ export default function GraficoComparacaoNotas(props) {
                             },
                             legend: {
                                 display: true,
-                                position: 'right'
+                                position: 'bottom'
                             }
                         },
                         scales: {
