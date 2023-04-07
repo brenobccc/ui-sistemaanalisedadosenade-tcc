@@ -44,7 +44,7 @@ export default function GraficoComparacaoNotas(props) {
 
         axios.get(`http://localhost:8080/analiseenade/consulta-dados-por-ano-municipio-area-nomeies?anoInicial=${anoInicial}&anoFinal=${anoFinal}&municipio1=${municipioIes1}&municipio2=${municipioIes2}&area=${area}&nomeies1=${nomeIes1}&nomeies2=${nomeIes2}`)
             .then(response => {
-
+                console.log(`http://localhost:8080/analiseenade/consulta-dados-por-ano-municipio-area-nomeies?anoInicial=${anoInicial}&anoFinal=${anoFinal}&municipio1=${municipioIes1}&municipio2=${municipioIes2}&area=${area}&nomeies1=${nomeIes1}&nomeies2=${nomeIes2}`)
 
                 console.log("codigo 1: " + JSON.stringify(response.data));
                 // setLabels(response.data[0]);

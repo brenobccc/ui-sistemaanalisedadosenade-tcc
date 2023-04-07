@@ -5,6 +5,11 @@ body {
   margin: 0;
 }
 
+/* .input-pers{
+  width: 40%;
+  background-color: #000000;
+} */
+
 /* estilo da div principal */
 #tela-principal {
   display: flex;
@@ -60,17 +65,20 @@ body {
 }
 
 #pc-header #pch-filtros{
-  width: 600px;
+  width: 1000px;
   height: 100%;
   border-radius: 15px;
   background-color: #000000;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 #pch-filtros #filtros{
   height: 78%;
-  background-color: #1e1e1f;
+  background-color: #151535;
   width: 100%;
+
+  display: flex;
+  flex-wrap: wrap;
 }
 #pch-filtros #filtros-button{
   height: 22%;
