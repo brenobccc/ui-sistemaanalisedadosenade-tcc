@@ -27,11 +27,11 @@ body {
   align-items: center;
 }
 
-#menu-navegacao #menu{
-    width: 100%;
-    height: 100%;
-    background-color: #5665EF;
-    /* border-radius: 50px; */
+#menu-navegacao #menu {
+  width: 100%;
+  height: 100%;
+  background-color: #5665EF;
+  /* border-radius: 50px; */
 }
 
 /* estilo do conteúdo principal */
@@ -41,13 +41,15 @@ body {
   height: 100%;
   padding-left: 15%;
   background-color: #d4cfcf;
-  overflow-y: auto; /* barra de rolagem automática */
+  overflow-y: auto;
+  /* barra de rolagem automática */
 }
 
 /* estilo do cabeçalho */
 #principal-content #pc-header {
   width: 85%;
-  height: 250px; /* altura fixa */
+  height: 230px;
+  /* altura fixa */
   background-color: #E3DFDF;
   position: fixed;
   top: 0;
@@ -59,12 +61,12 @@ body {
   box-sizing: border-box;
 }
 
-#pc-header font{
+#pc-header font {
   font-size: 28px;
   margin-bottom: 0px;
 }
 
-#pc-header #pch-filtros{
+#pc-header #pch-filtros {
   width: 1000px;
   height: 100%;
   border-radius: 15px;
@@ -72,16 +74,64 @@ body {
   /* overflow: hidden; */
 }
 
-#pch-filtros #filtros{
-  height: 78%;
-  background-color: #151535;
+#pch-filtros #filtros {
+  height: 65%;
+  /* background-color: #151535; */
   width: 100%;
-
   display: flex;
   flex-wrap: wrap;
 }
-#pch-filtros #filtros-button{
-  height: 22%;
+
+#filtros #filtros1 {
+  /* background-color: orange; */
+  height: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding: 5px;
+}
+
+#area{
+  width: 250px;
+}
+
+#ies1{
+  width: 500px;
+}
+
+#municipioies1{
+  width: 200px;
+}
+
+#anoinicial{
+  width: 115px;
+}
+#anofinal{
+  width: 115px;
+}
+
+#ies2{
+  width: 500px;
+}
+
+#municipioies2{
+  width: 200px;
+}
+
+
+#filtros #filtros2 {
+  height: 50%;
+  width: 100%;
+  /* background-color: rgb(225, 1, 255); */
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding: 5px;
+}
+
+#pch-filtros #filtros-button {
+  height: 35%;
   /* background-color: #7c0c31; */
   width: 100%;
   display: flex;
@@ -91,41 +141,44 @@ body {
   align-items: center;
 }
 
-#pch-filtros #filtros-button button{
-  height: 87%;
+#pch-filtros #filtros-button button {
+  height: 70%;
   width: 40%;
-  background-color: #ffffff;
+  background-color: #5665EF;
   border: 0px solid black;
+  color: white;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 12px;
+  font-size: 15px;
   letter-spacing: 2px;
 }
 
-#pch-filtros #filtros-button button:hover{
-  background-color: #a8a6a6;
+#pch-filtros #filtros-button button:hover {
+  background-color: #670bb3;
 }
 
 /* estilo do conteúdo com barra de rolagem */
 #principal-content #pc-content {
   width: 100%;
   padding: 15px;
-  padding-top: 265px; /* espaço para o cabeçalho */
+  padding-top: 265px;
+  /* espaço para o cabeçalho */
   box-sizing: border-box;
   display: flex;
   flex-wrap: wrap;
 }
 
-#pc-content #grafico2{
-    margin: 15px;
-    height: 320px;
-    width: 32%;
-    border-radius: 30px;
-    box-sizing: border-box;
-    background-color: white;
-    overflow: hidden;
+#pc-content #grafico2 {
+  margin: 15px;
+  height: 320px;
+  width: 32%;
+  border-radius: 30px;
+  box-sizing: border-box;
+  background-color: white;
+  overflow: hidden;
 }
-#pc-content #grafico3{
+
+#pc-content #grafico3 {
   margin: 15px;
   height: 320px;
   width: 40%;
@@ -134,7 +187,8 @@ body {
   background-color: white;
   overflow: hidden;
 }
-#pc-content #grafico4{
+
+#pc-content #grafico4 {
   margin: 15px;
   height: 320px;
   width: 32%;
