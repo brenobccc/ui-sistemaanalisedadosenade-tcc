@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import './TelaPrincipal.css';
 import GraficoComparacaoNotas from "./GraficoComparacaoNotas";
+import GraficoPizza from "./GraficoPizza";
+import GraficoPizza2 from "./GraficoIndices";
 import Select from 'react-select';
 import { useEffect } from "react";
 import axios from "axios";
+import GraficoIndices from "./GraficoIndices";
 
 export default function TelaPrincipal(props) {
     const [anoInicial, setAnoInicial] = useState('')
@@ -15,6 +18,8 @@ export default function TelaPrincipal(props) {
     const [area, setArea] = useState('')
 
     const [grafico1, setGrafico1] = useState();
+    const [grafico2, setGrafico2] = useState();
+    const [grafico3, setGrafico3] = useState();
 
     const [areaOptions, setAreaOptions] = useState([]);
     const [anoInicialOptions, setAnoInicialOptions] = useState([]);
@@ -100,7 +105,7 @@ export default function TelaPrincipal(props) {
                 </nav>
             </div>
             <div id="principal-content">
-                <div id="pc-header">
+                <div id="pc-header" style={{zIndex:1}}>
                     <font>Dashboard</font>
                     <div id="pch-filtros">
                         <div id="filtros">
@@ -193,6 +198,17 @@ export default function TelaPrincipal(props) {
                                     nomeIes1={ies1}
                                     nomeIes2={ies2}
                                     area={area}></GraficoComparacaoNotas>)
+
+                                setGrafico2(<GraficoPizza />)
+
+                                setGrafico3(<GraficoIndices
+                                    anoInicial={anoInicial}
+                                    anoFinal={anoFinal}
+                                    municipioIes1={municipioIes1}
+                                    municipioIes2={municipioIes2}
+                                    nomeIes1={ies1}
+                                    nomeIes2={ies2}
+                                    area={area} />)
                             }}> Consultar </button>
                         </div>
                     </div>
@@ -200,17 +216,30 @@ export default function TelaPrincipal(props) {
                 <div id="pc-content">
                     {/* <GraficoComparacaoNotas></GraficoComparacaoNotas> */}
                     {grafico1}
-                    <div id="grafico2">
+                    <div id="grafico2" >
                         {/* ssss
                         <Select options={[
                             { value: 'chocolate', label: 'Chocolate' },
                             { value: 'strawberry', label: 'Strawberry' }
                         ]}></Select> */}
                     </div>
-                    <div id="grafico3">
+                    <div id="grafico3" style={{
+                        width: "700px",
+                        height: "300px",
+                        display: "flex",
+                        position: "relative"
+                    }}>
+                        {/* <font style={{position: 'absolute', top: 0, left: '44%', fontSize: '20px'}}> Ano 2021 </font> */}
+                        {/* {grafico2} */}
+                        {grafico3}
 
                     </div>
-                    <div id="grafico4">
+
+                    <div id="grafico4" style={{
+                        width: "280px",
+                        // backgroundColor: "green"
+                    }}>
+                        {/* {grafico3} */}
 
                     </div>
                     {/* <p>
