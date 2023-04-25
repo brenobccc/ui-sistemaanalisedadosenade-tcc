@@ -28,11 +28,72 @@ body {
 }
 
 #menu-navegacao #menu {
-  width: 100%;
-  height: 100%;
+  width: 90%;
+  height: 95%;
+  border-radius: 10px;
   background-color: #5665EF;
   /* border-radius: 50px; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
+
+
+#menu #logo{
+  width: 100%;
+  height: 20%;
+  /* background-color: aqua; */
+}
+
+#menu #navs{
+  width: 100%;
+  height: 80%;
+  /* background-color: #670bb3; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#menu #navs .menus{
+  border-radius: 10px;
+  height: 50px;
+  background-color: #9847db;
+  margin: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-family: sans-serif;
+  font-size: 14px;
+  transition: background 0.5s;
+}
+
+
+#menu #navs .menus:hover{
+  cursor: pointer;
+  background-color: #55237d;
+
+}
+
+.desabilitado{
+  background: #9483a1;
+  border-radius: 10px;
+  height: 50px;
+  /* background-color: #9847db; */
+  margin: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-family: sans-serif;
+  font-size: 15px;
+}
+
+#menu #navs .desabilitado:hover{
+  cursor:not-allowed
+}
+
+
 
 /* estilo do conteúdo principal */
 #principal-content {
@@ -172,9 +233,11 @@ body {
   margin: 15px;
   height: 320px;
   width: 32%;
-  border-radius: 30px;
+  border-radius: 5px;
   box-sizing: border-box;
-  background-color: white;
+  padding: 10px;
+  text-align: center;
+  background-color: rgba(248, 245, 245, 0.422);
   overflow: hidden;
 }
 
@@ -189,6 +252,16 @@ body {
 }
 
 #pc-content #grafico4 {
+  margin: 15px;
+  height: 320px;
+  width: 32%;
+  border-radius: 30px;
+  box-sizing: border-box;
+  background-color: white;
+  overflow: hidden;
+}
+
+#pc-content #grafico5 {
   margin: 15px;
   height: 320px;
   width: 32%;

@@ -57,7 +57,7 @@ export default function GraficoPizza() {
 
     return (<div style={{
         height: '100%',
-        width: "45%",
+        width: "80%",
         margin: 'auto',
         display: 'flex',
         justifyContent: 'center',

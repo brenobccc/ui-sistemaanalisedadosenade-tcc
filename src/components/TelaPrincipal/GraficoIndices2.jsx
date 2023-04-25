@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Chart from 'chart.js/auto';
 
-export default function GraficoIndices(props) {
+export default function GraficoIndices2(props) {
     // Dados para o gráfico
     const [graficoPizza, setGraficoPizza] = useState([])
 
@@ -22,11 +22,11 @@ export default function GraficoIndices(props) {
     };
 
     useEffect(() => {
-        var chart = Chart.getChart("chartpizza2")
+        var chart = Chart.getChart("chartpizza3")
         if (chart) {
             chart.destroy();
         }
-
+        console.log(" grafico  3 ")
         const anoInicial = props.anoInicial
         const anoFinal = props.anoFinal
         const municipioIes1 = props.municipioIes1
@@ -34,7 +34,7 @@ export default function GraficoIndices(props) {
         const area = props.area
         const nomeIes1 = props.nomeIes1
         const nomeIes2 = props.nomeIes2
-        const url = `http://localhost:8080/analiseenade/consulta-dados-por-ano-municipio-area-nomeies2?anoInicial=${anoInicial}&anoFinal=${anoFinal}&municipio1=${municipioIes1}&municipio2=${municipioIes2}&area=${area}&nomeies1=${nomeIes1}&nomeies2=${nomeIes2}`;
+        const url = `http://localhost:8080/analiseenade/consulta-dados-por-ano-municipio-area-nomeies3?anoInicial=${anoInicial}&anoFinal=${anoFinal}&municipio1=${municipioIes1}&municipio2=${municipioIes2}&area=${area}&nomeies1=${nomeIes1}&nomeies2=${nomeIes2}`;
         axios.get(url)
             .then(response => {
                 console.log("dado: ");
@@ -64,21 +64,21 @@ export default function GraficoIndices(props) {
 
                 console.log("lista 2 : ", JSON.stringify(list2));
 
-                setGraficoPizza(new Chart(document.getElementById("chartpizza2"), {
+                setGraficoPizza(new Chart(document.getElementById("chartpizza3"), {
                     type: 'bar',
                     data: {
                         labels: list0,
                         datasets: [{
                             label: nomeIes1,
                             data: list1,
-                            backgroundColor: "blue",
-                            borderColor: "blue",
+                            backgroundColor: "red",
+                            borderColor: "red",
                             //fill:false
                         }, {
                             label: nomeIes2,
                             data: list2,
-                            backgroundColor: "green",
-                            borderColor: "green",
+                            backgroundColor: "orange",
+                            borderColor: "orange",
                             //fill:false
                         },
                             // {
@@ -101,7 +101,7 @@ export default function GraficoIndices(props) {
                         plugins: {
                             title: {
                                 display: true,
-                                text: "Comparação Alunos Inscritos"
+                                text: "Comparação Alunos Participantes"
                             },
                             legend: {
                                 display: true,
@@ -142,7 +142,7 @@ export default function GraficoIndices(props) {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center'
-    }}><canvas id="chartpizza2"></canvas></div>)
+    }}><canvas id="chartpizza3"></canvas></div>)
 
 
 }

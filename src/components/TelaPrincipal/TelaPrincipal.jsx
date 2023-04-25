@@ -7,6 +7,7 @@ import Select from 'react-select';
 import { useEffect } from "react";
 import axios from "axios";
 import GraficoIndices from "./GraficoIndices";
+import GraficoIndices2 from "./GraficoIndices2";
 
 export default function TelaPrincipal(props) {
     const [anoInicial, setAnoInicial] = useState('')
@@ -17,9 +18,31 @@ export default function TelaPrincipal(props) {
     const [ies2, setIes2] = useState('')
     const [area, setArea] = useState('')
 
-    const [grafico1, setGrafico1] = useState();
+    const [grafico1, setGrafico1] = useState(<GraficoComparacaoNotas
+        anoInicial={anoInicial}
+        anoFinal={anoFinal}
+        municipioIes1={municipioIes1}
+        municipioIes2={municipioIes2}
+        nomeIes1={ies1}
+        nomeIes2={ies2}
+        area={area}></GraficoComparacaoNotas>);
     const [grafico2, setGrafico2] = useState();
-    const [grafico3, setGrafico3] = useState();
+    const [grafico3, setGrafico3] = useState(<GraficoIndices
+        anoInicial={anoInicial}
+        anoFinal={anoFinal}
+        municipioIes1={municipioIes1}
+        municipioIes2={municipioIes2}
+        nomeIes1={ies1}
+        nomeIes2={ies2}
+        area={area} />);
+    const [grafico4, setGrafico4] = useState(<GraficoIndices2
+        anoInicial={anoInicial}
+        anoFinal={anoFinal}
+        municipioIes1={municipioIes1}
+        municipioIes2={municipioIes2}
+        nomeIes1={ies1}
+        nomeIes2={ies2}
+        area={area} />);
 
     const [areaOptions, setAreaOptions] = useState([]);
     const [anoInicialOptions, setAnoInicialOptions] = useState([]);
@@ -101,11 +124,22 @@ export default function TelaPrincipal(props) {
         <div id="tela-principal">
             <div id="menu-navegacao">
                 <nav id="menu">
+                    <div id="logo">
 
+                    </div>
+                    <div id="navs">
+                        <h4 style={{ marginLeft: '5px', fontFamily: 'sans-serif', color: 'white', letterSpacing: '1px' }}> Tipos de Análises </h4>
+                        <div className="menus">
+                            Comparar Universidades
+                        </div>
+                        <div className="desabilitado">
+                            Comparar Estados
+                        </div>
+                    </div>
                 </nav>
             </div>
             <div id="principal-content">
-                <div id="pc-header" style={{zIndex:1}}>
+                <div id="pc-header" style={{ zIndex: 1 }}>
                     <font>Dashboard</font>
                     <div id="pch-filtros">
                         <div id="filtros">
@@ -209,6 +243,14 @@ export default function TelaPrincipal(props) {
                                     nomeIes1={ies1}
                                     nomeIes2={ies2}
                                     area={area} />)
+                                setGrafico4(<GraficoIndices2
+                                    anoInicial={anoInicial}
+                                    anoFinal={anoFinal}
+                                    municipioIes1={municipioIes1}
+                                    municipioIes2={municipioIes2}
+                                    nomeIes1={ies1}
+                                    nomeIes2={ies2}
+                                    area={area} />)
                             }}> Consultar </button>
                         </div>
                     </div>
@@ -216,7 +258,11 @@ export default function TelaPrincipal(props) {
                 <div id="pc-content">
                     {/* <GraficoComparacaoNotas></GraficoComparacaoNotas> */}
                     {grafico1}
-                    <div id="grafico2" >
+                    <div id="grafico2" style={{ color: 'black', fontFamily: 'sans-serif' }}>
+                        <font> Para consultar, informe todas as informações no filtro a cima, iniciando com
+                            a Área do Curso, após todos os dados informados aperte no botão "Consultar" e com isso
+                            será gerado gráficos de acordo com os dados consultados no banco.
+                        </font>
                         {/* ssss
                         <Select options={[
                             { value: 'chocolate', label: 'Chocolate' },
@@ -224,7 +270,7 @@ export default function TelaPrincipal(props) {
                         ]}></Select> */}
                     </div>
                     <div id="grafico3" style={{
-                        width: "700px",
+                        width: "500px",
                         height: "300px",
                         display: "flex",
                         position: "relative"
@@ -236,12 +282,24 @@ export default function TelaPrincipal(props) {
                     </div>
 
                     <div id="grafico4" style={{
-                        width: "280px",
-                        // backgroundColor: "green"
+                        width: "500px",
+                        height: "300px",
+                        display: "flex",
+                        position: "relative"
                     }}>
+                        {grafico4}
                         {/* {grafico3} */}
 
                     </div>
+
+                    {/* <div id="grafico5" style={{
+                        width: "400px",
+                        height: "350px",
+                        display: "flex",
+                        position: "relative"
+                    }}>
+                        <GraficoPizza></GraficoPizza>
+                    </div> */}
                     {/* <p>
                         There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.
                     </p>
