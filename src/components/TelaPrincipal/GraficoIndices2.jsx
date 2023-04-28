@@ -71,14 +71,14 @@ export default function GraficoIndices2(props) {
                         datasets: [{
                             label: nomeIes1,
                             data: list1,
-                            backgroundColor: "red",
-                            borderColor: "red",
+                            backgroundColor: "#E86031",
+                            borderColor: "#BB3B10",
                             //fill:false
                         }, {
                             label: nomeIes2,
                             data: list2,
-                            backgroundColor: "orange",
-                            borderColor: "orange",
+                            backgroundColor: "#305FD6",
+                            borderColor: "#0F38A1",
                             //fill:false
                         },
                             // {

@@ -66,16 +66,16 @@ export default function GraficoComparacaoNotas(props) {
                             {
                                 label: nomeIes1,
                                 data: response.data[1],
-                                borderColor: "red",
-                                backgroundColor: "rgba(255, 0, 0, 0.1)",
+                                borderColor: "#C13B0D",
+                                backgroundColor: "#E86031",
                                 fill: true,
                                 tension: 0.3
                             },
                             {
                                 label: nomeIes2,
                                 data: response.data[2],
-                                borderColor: "blue",
-                                backgroundColor: "rgba(0, 0, 255, 0.5)",
+                                borderColor: "#0F38A1",
+                                backgroundColor: "#305FD6",
                                 fill: true,
                                 tension: 0.3
                             }

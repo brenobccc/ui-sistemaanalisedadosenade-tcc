@@ -139,8 +139,16 @@ export default function TelaPrincipal(props) {
                 </nav>
             </div>
             <div id="principal-content">
-                <div id="pc-header" style={{ zIndex: 1 }}>
-                    <font>Dashboard</font>
+                <div id="pc-header" style={{ zIndex: 1}}>
+                    <div style={{
+                        height: '100%',
+                        // backgroundColor: 'red',
+                        width: '220px',
+                        color: 'white'
+                    }}>
+                        <h2 className="titulo">Dashboard</h2>
+                        <h3>Gráfico de comparação de Universidades</h3>
+                    </div>
                     <div id="pch-filtros">
                         <div id="filtros">
                             <div id="filtros1">
@@ -258,7 +266,7 @@ export default function TelaPrincipal(props) {
                 <div id="pc-content">
                     {/* <GraficoComparacaoNotas></GraficoComparacaoNotas> */}
                     {grafico1}
-                    <div id="grafico2" style={{ color: 'black', fontFamily: 'sans-serif' }}>
+                    <div id="grafico2" style={{ color: '#7D7676', fontFamily: 'sans-serif' }}>
                         <font> Para consultar, informe todas as informações no filtro a cima, iniciando com
                             a Área do Curso, após todos os dados informados aperte no botão "Consultar" e com isso
                             será gerado gráficos de acordo com os dados consultados no banco.
