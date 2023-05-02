@@ -84,7 +84,7 @@ export default function TelaPrincipal(props) {
                         value: e.trim(),
                         label: formatarPalavra(e)
                     })
-                    console.log(formatarPalavra(e))
+                    //console.log(formatarPalavra(e))
                 })
                 //console.log(lista2);
                 setAreaOptions(lista2);
@@ -167,7 +167,7 @@ export default function TelaPrincipal(props) {
                                     setIes2Options([])
                                     setAnoInicialOptions([])
                                     setAnoFinalOptions([])
-                                    console.log(municipioIes1)
+                                    //console.log(municipioIes1)
 
                                     axios.get(`http://localhost:8080/analiseenade/consulta-edicoes-por-area?nomeArea=${areaEscolhida.value}`)
                                         .then(response => {
@@ -175,7 +175,14 @@ export default function TelaPrincipal(props) {
                                             const lista = response.data;
                                             const listaAnos = [];
                                             lista.map((e) => { listaAnos.push({ value: e.trim(), label: e }) })
-                                            setAnoInicialOptions(listaAnos);
+
+                                            let listaIni = []
+                                            for(let i = listaAnos.length ; i > 0 ; i--){
+                                                listaIni.push(listaAnos[i-1]);
+                                            }
+
+                                            console.log(JSON.stringify(listaIni))
+                                            setAnoInicialOptions(listaIni);
                                             setAnoFinalOptions(listaAnos);
                                             //console.log(response.data);
 
@@ -212,7 +219,7 @@ export default function TelaPrincipal(props) {
                                                     value: e.trim(),
                                                     label: formatarPalavra(e)
                                                 })
-                                                console.log(formatarPalavra(e))
+                                                //console.log(formatarPalavra(e))
                                             })
                                             setIes1Options(lista2);
                                             setIes2Options(lista2);
@@ -224,14 +231,17 @@ export default function TelaPrincipal(props) {
                                 <Select id="ies1" placeholder="Instituto de Ensino Superior 1" options={ies1Options} onChange={(e) => {
                                     setIes1(e.value)
 
-                                    axios.get(`http://localhost:8080/analiseenade/consulta-municipios-por-nomearea-nomeies?nomeArea=${area}&nomeIes=${ies1}`)
+                                    axios.get(`http://localhost:8080/analiseenade/consulta-municipios-por-nomearea-nomeies?nomeArea=${area}&nomeIes=${e.value}`)
                                         .then(response => {
                                             //console.log(JSON.stringify(response.data));
                                            //console.log(response.data)
+                                            //console.log(" Município 1: ");
+                                            //console.log("url:"+`http://localhost:8080/analiseenade/consulta-municipios-por-nomearea-nomeies?nomeArea=${area}&nomeIes=${e.value}`)
+                                            //console.log(response.data);
 
                                             const lista = response.data;
                                             const listaMunicipios1 = [];
-                                            lista.map((e) => { listaMunicipios1.push({ value: formatarPalavra(e.trim()), label: e }) })
+                                            lista.map((e) => { listaMunicipios1.push({ value: e, label: formatarPalavra(e.trim()) }) })
                                             setMunicipioIes1Options([]);
                                             setMunicipioIes1Options(listaMunicipios1);
                                         })
@@ -247,12 +257,12 @@ export default function TelaPrincipal(props) {
                                 <Select id="ies2" placeholder="Instituto de Ensino Superior 2" options={ies2Options} onChange={(e) => {
                                      setIes2(e.value)
                                      
-                                     axios.get(`http://localhost:8080/analiseenade/consulta-municipios-por-nomearea-nomeies?nomeArea=${area}&nomeIes=${ies2}`)
+                                     axios.get(`http://localhost:8080/analiseenade/consulta-municipios-por-nomearea-nomeies?nomeArea=${area}&nomeIes=${e.value}`)
                                         .then(response => {
                                             //console.log(JSON.stringify(response.data));
                                             const lista = response.data;
                                             const listaMunicipios2 = [];
-                                            lista.map((e) => { listaMunicipios2.push({ value: formatarPalavra(e.trim()), label: e }) })
+                                            lista.map((e) => { listaMunicipios2.push({ value: e, label: formatarPalavra(e.trim()) }) })
                                             setMunicipioIes2Options([]);
                                             setMunicipioIes2Options(listaMunicipios2);
                                         })
@@ -274,7 +284,7 @@ export default function TelaPrincipal(props) {
                         </div>
                         <div id="filtros-button">
                             <button onClick={() => {
-                                console.log(anoInicial)
+                                //console.log(anoInicial)
 
                                 setGrafico1(<GraficoComparacaoNotas
                                     anoInicial={anoInicial}
