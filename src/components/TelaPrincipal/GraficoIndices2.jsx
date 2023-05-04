@@ -34,7 +34,7 @@ export default function GraficoIndices2(props) {
         const area = props.area
         const nomeIes1 = props.nomeIes1
         const nomeIes2 = props.nomeIes2
-        const url = `http://localhost:8080/analiseenade/consulta-dados-por-ano-municipio-area-nomeies3?anoInicial=${anoInicial}&anoFinal=${anoFinal}&municipio1=${municipioIes1}&municipio2=${municipioIes2}&area=${area}&nomeies1=${nomeIes1}&nomeies2=${nomeIes2}`;
+        const url = `https://api-enade-analisedados-production.up.railway.app/analiseenade/consulta-dados-por-ano-municipio-area-nomeies3?anoInicial=${anoInicial}&anoFinal=${anoFinal}&municipio1=${municipioIes1}&municipio2=${municipioIes2}&area=${area}&nomeies1=${nomeIes1}&nomeies2=${nomeIes2}`;
         axios.get(url)
             .then(response => {
                 console.log("dado: ");

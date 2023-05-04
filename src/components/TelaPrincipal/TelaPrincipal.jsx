@@ -74,7 +74,7 @@ export default function TelaPrincipal(props) {
 
     useEffect(() => {
         //todas as áreas
-        axios.get(`http://localhost:8080/analiseenade/consulta-todas-areas`)
+        axios.get(`https://api-enade-analisedados-production.up.railway.app/analiseenade/consulta-todas-areas`)
             .then(response => {
                 //console.log(JSON.stringify(response.data));
                 const lista = response.data;
@@ -169,7 +169,7 @@ export default function TelaPrincipal(props) {
                                     setAnoFinalOptions([])
                                     //console.log(municipioIes1)
 
-                                    axios.get(`http://localhost:8080/analiseenade/consulta-edicoes-por-area?nomeArea=${areaEscolhida.value}`)
+                                    axios.get(`https://api-enade-analisedados-production.up.railway.app/analiseenade/consulta-edicoes-por-area?nomeArea=${areaEscolhida.value}`)
                                         .then(response => {
                                             //console.log(JSON.stringify(response.data));
                                             const lista = response.data;
@@ -207,7 +207,7 @@ export default function TelaPrincipal(props) {
                                             setAnoFinalOptions(objectDefaultAnos);
                                         });
                                     //IES
-                                    axios.get(`http://localhost:8080/analiseenade/consulta-todos-ies?nomeArea=${areaEscolhida.value}`)
+                                    axios.get(`https://api-enade-analisedados-production.up.railway.app/analiseenade/consulta-todos-ies?nomeArea=${areaEscolhida.value}`)
                                         .then(response => {
                                             //console.log(JSON.stringify(response.data));
                                             //console.log(JSON.stringify(response.data))
@@ -231,7 +231,7 @@ export default function TelaPrincipal(props) {
                                 <Select id="ies1" placeholder="Instituto de Ensino Superior 1" options={ies1Options} onChange={(e) => {
                                     setIes1(e.value)
 
-                                    axios.get(`http://localhost:8080/analiseenade/consulta-municipios-por-nomearea-nomeies?nomeArea=${area}&nomeIes=${e.value}`)
+                                    axios.get(`https://api-enade-analisedados-production.up.railway.app/analiseenade/consulta-municipios-por-nomearea-nomeies?nomeArea=${area}&nomeIes=${e.value}`)
                                         .then(response => {
                                             //console.log(JSON.stringify(response.data));
                                            //console.log(response.data)
@@ -257,7 +257,7 @@ export default function TelaPrincipal(props) {
                                 <Select id="ies2" placeholder="Instituto de Ensino Superior 2" options={ies2Options} onChange={(e) => {
                                      setIes2(e.value)
                                      
-                                     axios.get(`http://localhost:8080/analiseenade/consulta-municipios-por-nomearea-nomeies?nomeArea=${area}&nomeIes=${e.value}`)
+                                     axios.get(`https://api-enade-analisedados-production.up.railway.app/analiseenade/consulta-municipios-por-nomearea-nomeies?nomeArea=${area}&nomeIes=${e.value}`)
                                         .then(response => {
                                             //console.log(JSON.stringify(response.data));
                                             const lista = response.data;
