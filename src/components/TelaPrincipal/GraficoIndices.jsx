@@ -3,6 +3,20 @@ import axios from "axios";
 import Chart from 'chart.js/auto';
 
 export default function GraficoIndices(props) {
+
+    function formatarPalavra(palavra) {
+        const palavrasDeLigacao = ['e', 'de', 'da', 'do', 'dos', 'das', 'para', 'com'];
+
+        return palavra.split(' ')
+            .map(function (palavra, index) {
+                if (index === 0 || !palavrasDeLigacao.includes(palavra.toLowerCase())) {
+                    return palavra.charAt(0).toUpperCase() + palavra.slice(1).toLowerCase();
+                } else {
+                    return palavra.toLowerCase();
+                }
+            })
+            .join(' ');
+    }
     // Dados para o gráfico
     const [graficoPizza, setGraficoPizza] = useState([])
 
@@ -69,13 +83,13 @@ export default function GraficoIndices(props) {
                     data: {
                         labels: list0,
                         datasets: [{
-                            label: nomeIes1,
+                            label: formatarPalavra(nomeIes1) + ' - ' + formatarPalavra(municipioIes1),
                             data: list1,
                             backgroundColor: "#E86031",
                             borderColor: "#BB3B10",
                             //fill:false
                         }, {
-                            label: nomeIes2,
+                            label: formatarPalavra(nomeIes2) + ' - ' + formatarPalavra(municipioIes2),
                             data: list2,
                             backgroundColor: "#305FD6",
                             borderColor: "#0F38A1",

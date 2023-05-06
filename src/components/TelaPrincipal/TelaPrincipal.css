@@ -14,6 +14,7 @@ body {
 #tela-principal {
   display: flex;
   height: 100%;
+  width: 100%;
 }
 
 /* estilo do menu esquerdo */

@@ -4,6 +4,21 @@ import './GraficosComparaNotas.css';
 import axios from "axios";
 
 export default function GraficoComparacaoNotas(props) {
+
+    function formatarPalavra(palavra) {
+        const palavrasDeLigacao = ['e', 'de', 'da', 'do', 'dos', 'das', 'para', 'com'];
+
+        return palavra.split(' ')
+            .map(function (palavra, index) {
+                if (index === 0 || !palavrasDeLigacao.includes(palavra.toLowerCase())) {
+                    return palavra.charAt(0).toUpperCase() + palavra.slice(1).toLowerCase();
+                } else {
+                    return palavra.toLowerCase();
+                }
+            })
+            .join(' ');
+    }
+
     const [ies1, setIes1] = useState({});
 
     const [ies2, setIes2] = useState({});
@@ -64,7 +79,7 @@ export default function GraficoComparacaoNotas(props) {
                         labels: response.data[0],
                         datasets: [
                             {
-                                label: nomeIes1,
+                                label: formatarPalavra(nomeIes1) + ' - ' + formatarPalavra(municipioIes1),
                                 data: response.data[1],
                                 borderColor: "#c13a0da8",
                                 backgroundColor: "#e85f3167",
@@ -72,8 +87,8 @@ export default function GraficoComparacaoNotas(props) {
                                 tension: 0.3
                             },
                             {
-                                label: nomeIes2,
-                                data: response.data[2],
+                                label: formatarPalavra(nomeIes2) + ' - ' + formatarPalavra(municipioIes2),
+                                data: response.data[2], 
                                 borderColor: "#0F38A1",
                                 backgroundColor: "#305FD6",
                                 fill: true,
