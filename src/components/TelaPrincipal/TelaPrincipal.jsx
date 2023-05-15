@@ -177,8 +177,8 @@ export default function TelaPrincipal(props) {
                                             lista.map((e) => { listaAnos.push({ value: e.trim(), label: e }) })
 
                                             let listaIni = []
-                                            for(let i = listaAnos.length ; i > 0 ; i--){
-                                                listaIni.push(listaAnos[i-1]);
+                                            for (let i = listaAnos.length; i > 0; i--) {
+                                                listaIni.push(listaAnos[i - 1]);
                                             }
 
                                             console.log(JSON.stringify(listaIni))
@@ -228,13 +228,13 @@ export default function TelaPrincipal(props) {
                                             console.log(error);
                                         });
                                 }}></Select>
-                                <Select id="ies1" placeholder="Instituto de Ensino Superior 1" options={ies1Options} onChange={(e) => {
+                                <Select noOptionsMessage={() => { alert("Selecione uma Área") }} id="ies1" placeholder="Instituto de Ensino Superior 1" options={ies1Options} onChange={(e) => {
                                     setIes1(e.value)
 
                                     axios.get(`https://api-enade-analisedados-production.up.railway.app/analiseenade/consulta-municipios-por-nomearea-nomeies?nomeArea=${area}&nomeIes=${e.value}`)
                                         .then(response => {
                                             //console.log(JSON.stringify(response.data));
-                                           //console.log(response.data)
+                                            //console.log(response.data)
                                             //console.log(" Município 1: ");
                                             //console.log("url:"+`http://localhost:8080/analiseenade/consulta-municipios-por-nomearea-nomeies?nomeArea=${area}&nomeIes=${e.value}`)
                                             //console.log(response.data);
@@ -247,17 +247,23 @@ export default function TelaPrincipal(props) {
                                         })
                                         .catch(error => {
                                             console.log(error);
-                                    });
+                                        });
                                 }}></Select>
-                                <Select id="municipioies1" placeholder="Município IES 1" options={municipioIes1Options} onChange={(e) => { setMunicipioIes1(e.value) }}></Select>
+                                <Select noOptionsMessage={() => {
+                                    if (ies1 == '') {
+                                        alert("Selecione uma Ies 1");
+                                    } else {
+                                        alert("Selecionae uma Área");
+                                    }
+                                }} id="municipioies1" placeholder="Município IES 1" options={municipioIes1Options} onChange={(e) => { setMunicipioIes1(e.value) }}></Select>
                             </div>
                             <div id="filtros2">
-                                <Select id="anoinicial" placeholder="Ano Inicial" options={anoInicialOptions} onChange={(e) => { setAnoInicial(e.value) }}></Select>
-                                <Select id="anofinal" placeholder="Ano Final" options={anoFinalOptions} onChange={(e) => { setAnoFinal(e.value) }}></Select>
-                                <Select id="ies2" placeholder="Instituto de Ensino Superior 2" options={ies2Options} onChange={(e) => {
-                                     setIes2(e.value)
-                                     
-                                     axios.get(`https://api-enade-analisedados-production.up.railway.app/analiseenade/consulta-municipios-por-nomearea-nomeies?nomeArea=${area}&nomeIes=${e.value}`)
+                                <Select noOptionsMessage={() => { alert("Selecione uma Área") }} id="anoinicial" placeholder="Ano Inicial" options={anoInicialOptions} onChange={(e) => { setAnoInicial(e.value) }}></Select>
+                                <Select noOptionsMessage={() => { alert("Selecione uma Área") }} id="anofinal" placeholder="Ano Final" options={anoFinalOptions} onChange={(e) => { setAnoFinal(e.value) }}></Select>
+                                <Select noOptionsMessage={() => { alert("Selecione uma Área") }} id="ies2" placeholder="Instituto de Ensino Superior 2" options={ies2Options} onChange={(e) => {
+                                    setIes2(e.value)
+
+                                    axios.get(`https://api-enade-analisedados-production.up.railway.app/analiseenade/consulta-municipios-por-nomearea-nomeies?nomeArea=${area}&nomeIes=${e.value}`)
                                         .then(response => {
                                             //console.log(JSON.stringify(response.data));
                                             const lista = response.data;
@@ -268,9 +274,15 @@ export default function TelaPrincipal(props) {
                                         })
                                         .catch(error => {
                                             console.log(error);
-                                    });
+                                        });
                                 }}></Select>
-                                <Select id="municipioies2" placeholder="Município IES 2" options={municipioIes2Options} onChange={(e) => { setMunicipioIes2(e.value) }}></Select>
+                                <Select noOptionsMessage={() => {
+                                    if (ies2 == '') {
+                                        alert("Selecione uma Ies 2");
+                                    } else {
+                                        alert("Selecione uma Área");
+                                    }
+                                }} id="municipioies2" placeholder="Município IES 2" options={municipioIes2Options} onChange={(e) => { setMunicipioIes2(e.value) }}></Select>
                             </div>
                             {/* <input placeholder="Ano Inicial" id="anoInicial" onChange={() => { setAnoInicial(document.getElementById("anoInicial").value) }}></input> */}
                             {/* <input placeholder="Ano Final" id="anoFinal" onChange={() => { setAnoFinal(document.getElementById("anoFinal").value) }}></input> */}
@@ -286,33 +298,44 @@ export default function TelaPrincipal(props) {
                             <button onClick={() => {
                                 //console.log(anoInicial)
 
-                                setGrafico1(<GraficoComparacaoNotas
-                                    anoInicial={anoInicial}
-                                    anoFinal={anoFinal}
-                                    municipioIes1={municipioIes1}
-                                    municipioIes2={municipioIes2}
-                                    nomeIes1={ies1}
-                                    nomeIes2={ies2}
-                                    area={area}></GraficoComparacaoNotas>)
+                                if (ies1 === '' ||
+                                    ies2 === '' ||
+                                    municipioIes1 === '' ||
+                                    municipioIes2 === '' ||
+                                    anoInicial === '' ||
+                                    anoFinal === '' ||
+                                    area === '') {
+                                    alert("Preencha os campos!!");
+                                } else {
+                                    setGrafico1(<GraficoComparacaoNotas
+                                        anoInicial={anoInicial}
+                                        anoFinal={anoFinal}
+                                        municipioIes1={municipioIes1}
+                                        municipioIes2={municipioIes2}
+                                        nomeIes1={ies1}
+                                        nomeIes2={ies2}
+                                        area={area}></GraficoComparacaoNotas>)
 
-                                setGrafico2(<GraficoPizza />)
+                                    setGrafico2(<GraficoPizza />)
 
-                                setGrafico3(<GraficoIndices
-                                    anoInicial={anoInicial}
-                                    anoFinal={anoFinal}
-                                    municipioIes1={municipioIes1}
-                                    municipioIes2={municipioIes2}
-                                    nomeIes1={ies1}
-                                    nomeIes2={ies2}
-                                    area={area} />)
-                                setGrafico4(<GraficoIndices2
-                                    anoInicial={anoInicial}
-                                    anoFinal={anoFinal}
-                                    municipioIes1={municipioIes1}
-                                    municipioIes2={municipioIes2}
-                                    nomeIes1={ies1}
-                                    nomeIes2={ies2}
-                                    area={area} />)
+                                    setGrafico3(<GraficoIndices
+                                        anoInicial={anoInicial}
+                                        anoFinal={anoFinal}
+                                        municipioIes1={municipioIes1}
+                                        municipioIes2={municipioIes2}
+                                        nomeIes1={ies1}
+                                        nomeIes2={ies2}
+                                        area={area} />)
+                                    setGrafico4(<GraficoIndices2
+                                        anoInicial={anoInicial}
+                                        anoFinal={anoFinal}
+                                        municipioIes1={municipioIes1}
+                                        municipioIes2={municipioIes2}
+                                        nomeIes1={ies1}
+                                        nomeIes2={ies2}
+                                        area={area} />)
+                                }
+
                             }}> Consultar </button>
                         </div>
                     </div>
