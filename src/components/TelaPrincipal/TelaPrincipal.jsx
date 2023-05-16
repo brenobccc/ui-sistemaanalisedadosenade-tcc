@@ -8,6 +8,7 @@ import { useEffect } from "react";
 import axios from "axios";
 import GraficoIndices from "./GraficoIndices";
 import GraficoIndices2 from "./GraficoIndices2";
+import Cabecalho from "../Cabecalho";
 
 export default function TelaPrincipal(props) {
     const [anoInicial, setAnoInicial] = useState('')
@@ -122,7 +123,8 @@ export default function TelaPrincipal(props) {
 
     return (
         <div id="tela-principal">
-            <div id="menu-navegacao">
+            
+            {/* <div id="menu-navegacao">
                 <nav id="menu">
                     <div id="logo">
 
@@ -137,9 +139,56 @@ export default function TelaPrincipal(props) {
                         </div>
                     </div>
                 </nav>
-            </div>
+            </div> */}
             <div id="principal-content">
-                <div id="pc-header" style={{ zIndex: 1 }}>
+                <Cabecalho style={{
+                    width: '100%',
+                    height: '280px',
+                    backgroundColor: '#FF642F'
+                }} 
+                
+                estiloNav = {{
+                    width: '100%',
+                    height: '20%',
+                    // backgroundColor: 'gray',
+                    display: 'flex',
+                    justifyContent: 'right'
+                }}
+
+                estiloTitulo = {{
+                    width: '100%',
+                    height: '80%'
+                }}
+
+                ul = {{
+                    padding: 0,
+                    width: '400px',
+                    height: '90%',
+                    margin: 0,
+                    marginRight: '5px',
+                    // backgroundColor: 'orange',
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center'
+                }}  
+
+                li = {{
+                    width: '130px',
+                    height: '90%',
+                    backgroundColor: '#B84721',
+                    listStyle: 'none',
+                    borderRadius: '6px',
+                    textAlign: 'center',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    color: 'white',
+                    fontFamily: 'sans-serif',
+                    cursor: 'pointer'
+                }}
+
+                />
+                <div id="pc-header">
                     <div style={{
                         height: '100%',
                         // backgroundColor: 'red',
@@ -413,6 +462,13 @@ export default function TelaPrincipal(props) {
                     <p>
                         There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.
                     </p> */}
+                </div>
+                <div style={{
+                    height: '200px',
+                    background: 'black',
+                    marginTop: '200px'
+                }}>
+
                 </div>
             </div>
         </div>
