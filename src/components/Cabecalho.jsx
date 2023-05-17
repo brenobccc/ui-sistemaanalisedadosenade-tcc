@@ -4,8 +4,6 @@ export default function Cabecalho(props) {
     return (<div style={props.style}>
         <div id="head-nav" style={props.estiloNav}>
             <ul style={props.ul}>
-                <li style={props.li}>Comparar Universidades</li>
-                <li style={props.li}>Comparar Estados</li>
                 <li style={{
                     width: '130px',
                     height: '90%',
@@ -19,7 +17,9 @@ export default function Cabecalho(props) {
                     color: 'black',
                     fontFamily: 'sans-serif',
                     cursor: 'pointer'
-                }}>Sobre</li>
+                }}>Comparar Universidades</li>
+                <li style={props.li}>Comparar Estados</li>
+                <li style={props.li}>Sobre</li>
             </ul>
         </div>
         <div id="head-title" style={props.estiloTitulo}>

@@ -13,6 +13,7 @@ body {
 /* estilo da div principal */
 #tela-principal {
   display: flex;
+  flex-direction: column;
   height: 100%;
   width: 100%;
 }
@@ -301,4 +302,197 @@ body {
   box-sizing: border-box;
   background-color: #FFFFFF;
   overflow: hidden;
+}
+
+#tutorial1{
+  background: white;
+  background-image: url(./tutorial1.svg);
+  background-size: 85%;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
+
+#tutorial1 div{
+  /* background-color: orange; */
+  padding-left: 30px;
+  padding-right: 30px;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+}
+
+#tutorial1 div button{
+  background-color: #FF642F;
+  border: 0px solid black;
+  color: white;
+  border-radius: 5px;
+  transition: background 1s;
+}
+
+#tutorial1 div button:hover{
+  background-color: #ce4a1e;
+}
+
+
+#tutorial1 div .pular{
+  background-color: #D4D1D0;
+  color: black;
+  font-weight: bolder;
+  transition: background 1s;
+}
+#tutorial1 div .pular:hover{
+  background-color: #aaa6a4;
+  color: black;
+  font-weight: bolder;
+}
+
+#tutorial2{
+  background: white;
+  background-image: url(./tutorial2.svg);
+  background-size: 85%;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
+
+#tutorial2 div{
+  /* background-color: orange; */
+  padding-left: 30px;
+  padding-right: 30px;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+}
+
+#tutorial2 div button{
+  background-color: #FF642F;
+  border: 0px solid black;
+  color: white;
+  border-radius: 5px;
+  transition: background 1s;
+}
+
+#tutorial2 div button:hover{
+  background-color: #ce4a1e;
+}
+
+
+#tutorial2 div .pular{
+  background-color: #D4D1D0;
+  color: black;
+  font-weight: bolder;
+  transition: background 1s;
+}
+#tutorial2 div .pular:hover{
+  background-color: #aaa6a4;
+  color: black;
+  font-weight: bolder;
+}
+
+#tutorial3{
+  background: white;
+  background-image: url(./tutorial3.svg);
+  background-size: 85%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#tutorial3{
+  background: white;
+  background-image: url(./tutorial3.svg);
+  background-size: 85%;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
+
+#tutorial3 div{
+  /* background-color: orange; */
+  padding-left: 30px;
+  padding-right: 30px;
+  height: 60px;
+  display: flex;
+  justify-content: right;
+}
+
+#tutorial3 div button{
+  background-color: #FF642F;
+  border: 0px solid black;
+  color: white;
+  border-radius: 5px;
+  transition: background 1s;
+}
+
+#tutorial3 div button:hover{
+  background-color: #ce4a1e;
+}
+
+
+#tutorial3 div .pular{
+  background-color: #D4D1D0;
+  color: black;
+  font-weight: bolder;
+  transition: background 1s;
+}
+#tutorial3 div .pular:hover{
+  background-color: #aaa6a4;
+  color: black;
+  font-weight: bolder;
+}
+
+#tutorial4{
+  background: white;
+  height: 200px;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding: 150px;
+  
+}
+
+#tutorial4 div{
+  /* background-color: orange; */
+  display: flex;
+  width: 100%;
+  height: 80px;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#tutorial4 p{
+  font-family: 'sans-serif';
+  font-size: 23px;
+  letter-spacing: 1px;
+}
+
+#tutorial4 div button{
+  background-color: #FF642F;
+  border: 0px solid black;
+  color: white;
+  border-radius: 5px;
+  transition: background 1s;
+}
+
+#tutorial4 div button:hover{
+  background-color: #ce4a1e;
+}
+
+#tutorial4 .nao{
+  background-color: red;
+  color: white;
+}
+
+#tutorial4 .nao:hover{
+  background-color: rgb(168, 5, 5);
+  color: white;
 }

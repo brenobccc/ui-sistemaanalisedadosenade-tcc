@@ -10,6 +10,8 @@ import GraficoIndices from "./GraficoIndices";
 import GraficoIndices2 from "./GraficoIndices2";
 import Cabecalho from "../Cabecalho";
 
+
+
 export default function TelaPrincipal(props) {
     const [anoInicial, setAnoInicial] = useState('')
     const [anoFinal, setAnoFinal] = useState('')
@@ -52,7 +54,7 @@ export default function TelaPrincipal(props) {
     const [ies2Options, setIes2Options] = useState([]);
     const [municipioIes1Options, setMunicipioIes1Options] = useState([]);
     const [municipioIes2Options, setMunicipioIes2Options] = useState([]);
-
+    const [inibirTutorial, setInibirTutorial] = useState(false);
 
 
     function formatarPalavra(palavra) {
@@ -74,6 +76,9 @@ export default function TelaPrincipal(props) {
     //}
 
     useEffect(() => {
+        const inibir = localStorage.getItem('inibirTutorial');
+        setInibirTutorial(inibir === undefined ? false : inibir);
+        // alert(inibir);
         //todas as áreas
         axios.get(`https://api-enade-analisedados-production.up.railway.app/analiseenade/consulta-todas-areas`)
             .then(response => {
@@ -119,11 +124,236 @@ export default function TelaPrincipal(props) {
 
     }, []);
 
+    const [tutorial, setTutorial] = useState(
+        {
+            width: '100%',
+            height: '100%',
+            backgroundColor: 'rgba(0, 0, 0, 0.5)',
+            position: "fixed",
+            zIndex: 1,
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center'
+        });
 
+
+    const [tutorialPagina, setTutorialPagina] = useState(
+        {
+            width: '900px',
+            height: '600px',
+            borderRadius: '10px'
+        }
+    )
+
+    const [tutorialButton, setTutorialButton] = useState(
+        {
+            width: '100px',
+            height: '50px',
+            borderRadius: '5px',
+            // backgroundColor: 'green'
+        }
+    )
+
+    const [contador, setContador] = useState(1);
 
     return (
+
         <div id="tela-principal">
-            
+            {!inibirTutorial ? (<div id="tutorial" style={tutorial}>
+                {contador == 1 ? (
+                    <div id="tutorial1" style={tutorialPagina}>
+                        {/* <div style={{
+                            backgroundColor: 'orange',
+                            width: '100%',
+                            height: '100%',
+                        }}></div> */}
+                        <div>
+                            <button class="pular" style={tutorialButton}
+                                onClick={() => {
+
+                                    // setTutorial({
+                                    //     visibility: 'hidden',
+                                    //     height: 0
+                                    // });
+                                    // setTutorialPagina({
+                                    //     visibility: 'hidden'
+                                    // });
+                                    // setTutorialButton({
+                                    //     visibility: 'hidden'
+                                    // });
+
+                                    // document.getElementById('principal-content').style.width = '100%';
+                                    setContador(4)
+                                }}
+                            >Pular</button>
+                            <button style={tutorialButton}
+                                onClick={() => {
+                                    // setTutorial({
+                                    //     visibility: 'hidden',
+                                    //     height: 0
+                                    // });
+                                    // setTutorialPagina({
+                                    //     visibility: 'hidden'
+                                    // });
+                                    // setTutorialButton({
+                                    //     visibility: 'hidden'
+                                    // });
+
+                                    // document.getElementById('principal-content').style.width = '100%';
+                                    setContador(contador + 1)
+                                }}
+                            >Próxima</button>
+                        </div>
+
+                    </div>
+                ) : (
+                    contador == 2 ? (
+                        <div id="tutorial2" style={tutorialPagina}>
+                            {/* <div style={{
+                            backgroundColor: 'orange',
+                            width: '100%',
+                            height: '100%',
+                        }}></div> */}
+                            <div>
+                                <button class="pular" style={tutorialButton}
+                                    onClick={() => {
+
+                                        // setTutorial({
+                                        //     visibility: 'hidden',
+                                        //     height: 0
+                                        // });
+                                        // setTutorialPagina({
+                                        //     visibility: 'hidden'
+                                        // });
+                                        // setTutorialButton({
+                                        //     visibility: 'hidden'
+                                        // });
+
+                                        // document.getElementById('principal-content').style.width = '100%';
+                                        setContador(4)
+                                    }}
+                                >Pular</button>
+                                <button style={tutorialButton}
+                                    onClick={() => {
+                                        // setTutorial({
+                                        //     visibility: 'hidden',
+                                        //     height: 0
+                                        // });
+                                        // setTutorialPagina({
+                                        //     visibility: 'hidden'
+                                        // });
+                                        // setTutorialButton({
+                                        //     visibility: 'hidden'
+                                        // });
+
+                                        // document.getElementById('principal-content').style.width = '100%';
+                                        setContador(contador + 1)
+                                    }}
+                                >Próxima</button>
+                            </div>
+
+                        </div>
+                    ) : (
+                        contador == 3 ? (
+                            (
+                                <div id="tutorial3" style={tutorialPagina}>
+                                    {/* <div style={{
+                                    backgroundColor: 'orange',
+                                    width: '100%',
+                                    height: '100%',
+                                }}></div> */}
+                                    <div>
+                                        {/* <button class="pular" style={tutorialButton}
+                                        onClick={() => {
+        
+                                            // setTutorial({
+                                            //     visibility: 'hidden',
+                                            //     height: 0
+                                            // });
+                                            // setTutorialPagina({
+                                            //     visibility: 'hidden'
+                                            // });
+                                            // setTutorialButton({
+                                            //     visibility: 'hidden'
+                                            // });
+        
+                                            // document.getElementById('principal-content').style.width = '100%';
+                                            setContador(4)
+                                        }}
+                                    >Pular</button> */}
+                                        <button style={tutorialButton}
+                                            onClick={() => {
+                                                // setTutorial({
+                                                //     visibility: 'hidden',
+                                                //     height: 0
+                                                // });
+                                                // setTutorialPagina({
+                                                //     visibility: 'hidden'
+                                                // });
+                                                // setTutorialButton({
+                                                //     visibility: 'hidden'
+                                                // });
+
+                                                // document.getElementById('principal-content').style.width = '100%';
+                                                setContador(contador + 1)
+                                            }}
+                                        >Próxima</button>
+                                    </div>
+
+                                </div>
+                            )
+                        ) : (
+                            (
+                                <div style={tutorialPagina} id="tutorial4">
+                                    <p>Deseja continuar mostrando a página de tutorial?</p>
+                                    <div>
+                                        <button style={tutorialButton}
+                                            onClick={() => {
+                                                setTutorial({
+                                                    visibility: 'hidden',
+                                                    height: 0
+                                                });
+                                                setTutorialPagina({
+                                                    visibility: 'hidden'
+                                                });
+                                                setTutorialButton({
+                                                    visibility: 'hidden'
+                                                });
+
+                                                document.getElementById('principal-content').style.width = '100%';
+                                                setContador(contador + 1)
+                                            }}
+                                        >Sim</button>
+                                        <button className="nao" style={tutorialButton}
+                                            onClick={() => {
+                                                setTutorial({
+                                                    visibility: 'hidden',
+                                                    height: 0
+                                                });
+                                                setTutorialPagina({
+                                                    visibility: 'hidden'
+                                                });
+                                                setTutorialButton({
+                                                    visibility: 'hidden'
+                                                });
+
+                                                document.getElementById('principal-content').style.width = '100%';
+                                                setContador(contador + 1);
+
+                                                localStorage.setItem('inibirTutorial', true);
+                                            }}
+                                        >Não</button>
+
+                                    </div>
+                                </div>
+                            )
+                        )
+                    )
+                )}
+
+            </div>) : ''}
+
+
             {/* <div id="menu-navegacao">
                 <nav id="menu">
                     <div id="logo">
@@ -145,47 +375,47 @@ export default function TelaPrincipal(props) {
                     width: '100%',
                     height: '280px',
                     backgroundColor: '#FF642F'
-                }} 
-                
-                estiloNav = {{
-                    width: '100%',
-                    height: '20%',
-                    // backgroundColor: 'gray',
-                    display: 'flex',
-                    justifyContent: 'right'
                 }}
 
-                estiloTitulo = {{
-                    width: '100%',
-                    height: '80%'
-                }}
+                    estiloNav={{
+                        width: '100%',
+                        height: '20%',
+                        // backgroundColor: 'gray',
+                        display: 'flex',
+                        justifyContent: 'right'
+                    }}
 
-                ul = {{
-                    padding: 0,
-                    width: '400px',
-                    height: '90%',
-                    margin: 0,
-                    marginRight: '5px',
-                    // backgroundColor: 'orange',
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    alignItems: 'center'
-                }}  
+                    estiloTitulo={{
+                        width: '100%',
+                        height: '80%'
+                    }}
 
-                li = {{
-                    width: '130px',
-                    height: '90%',
-                    backgroundColor: '#B84721',
-                    listStyle: 'none',
-                    borderRadius: '6px',
-                    textAlign: 'center',
-                    display: 'flex',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    color: 'white',
-                    fontFamily: 'sans-serif',
-                    cursor: 'pointer'
-                }}
+                    ul={{
+                        padding: 0,
+                        width: '400px',
+                        height: '90%',
+                        margin: 0,
+                        marginRight: '5px',
+                        // backgroundColor: 'orange',
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                        alignItems: 'center'
+                    }}
+
+                    li={{
+                        width: '130px',
+                        height: '90%',
+                        backgroundColor: '#B84721',
+                        listStyle: 'none',
+                        borderRadius: '6px',
+                        textAlign: 'center',
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        color: 'white',
+                        fontFamily: 'sans-serif',
+                        cursor: 'pointer'
+                    }}
 
                 />
                 <div id="pc-header">
