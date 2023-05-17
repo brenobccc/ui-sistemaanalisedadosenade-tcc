@@ -507,7 +507,7 @@ export default function TelaPrincipal(props) {
                                             console.log(error);
                                         });
                                 }}></Select>
-                                <Select noOptionsMessage={() => { alert("Selecione uma Área") }} id="ies1" placeholder="Instituto de Ensino Superior 1" options={ies1Options} onChange={(e) => {
+                                <Select noOptionsMessage={() => {}} id="ies1" placeholder="Instituto de Ensino Superior 1" options={ies1Options} onChange={(e) => {
                                     setIes1(e.value)
 
                                     axios.get(`https://api-enade-analisedados-production.up.railway.app/analiseenade/consulta-municipios-por-nomearea-nomeies?nomeArea=${area}&nomeIes=${e.value}`)
@@ -531,15 +531,15 @@ export default function TelaPrincipal(props) {
                                 <Select noOptionsMessage={() => {
                                     if (ies1 == '') {
                                         alert("Selecione uma Ies 1");
-                                    } else {
-                                        alert("Selecionae uma Área");
+                                    } else if(area){
+                                        alert("Selecione uma Área");
                                     }
                                 }} id="municipioies1" placeholder="Município IES 1" options={municipioIes1Options} onChange={(e) => { setMunicipioIes1(e.value) }}></Select>
                             </div>
                             <div id="filtros2">
-                                <Select noOptionsMessage={() => { alert("Selecione uma Área") }} id="anoinicial" placeholder="Ano Inicial" options={anoInicialOptions} onChange={(e) => { setAnoInicial(e.value) }}></Select>
-                                <Select noOptionsMessage={() => { alert("Selecione uma Área") }} id="anofinal" placeholder="Ano Final" options={anoFinalOptions} onChange={(e) => { setAnoFinal(e.value) }}></Select>
-                                <Select noOptionsMessage={() => { alert("Selecione uma Área") }} id="ies2" placeholder="Instituto de Ensino Superior 2" options={ies2Options} onChange={(e) => {
+                                <Select noOptionsMessage={() => {  }} id="anoinicial" placeholder="Ano Inicial" options={anoInicialOptions} onChange={(e) => { setAnoInicial(e.value) }}></Select>
+                                <Select noOptionsMessage={() => {  }} id="anofinal" placeholder="Ano Final" options={anoFinalOptions} onChange={(e) => { setAnoFinal(e.value) }}></Select>
+                                <Select noOptionsText={"s"} noOptionsMessage={() => {  }} id="ies2" placeholder="Instituto de Ensino Superior 2" options={ies2Options} onChange={(e) => {
                                     setIes2(e.value)
 
                                     axios.get(`https://api-enade-analisedados-production.up.railway.app/analiseenade/consulta-municipios-por-nomearea-nomeies?nomeArea=${area}&nomeIes=${e.value}`)
