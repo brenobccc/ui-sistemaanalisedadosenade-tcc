@@ -391,15 +391,15 @@ export default function TelaPrincipal(props) {
                     }}
 
                     ul={{
-                        padding: 0,
-                        width: '400px',
+                        width: '300px',
                         height: '90%',
                         margin: 0,
                         marginRight: '5px',
                         // backgroundColor: 'orange',
                         display: 'flex',
                         justifyContent: 'space-between',
-                        alignItems: 'center'
+                        alignItems: 'center',
+                        paddingRight: '15px'
                     }}
 
                     li={{
@@ -623,10 +623,7 @@ export default function TelaPrincipal(props) {
                     {/* <GraficoComparacaoNotas></GraficoComparacaoNotas> */}
                     {grafico1}
                     <div id="grafico2" style={{ color: '#7D7676', fontFamily: 'sans-serif' }}>
-                        <font> Para consultar, informe todas as informações no filtro a cima, iniciando com
-                            a Área do Curso, após todos os dados informados aperte no botão "Consultar" e com isso
-                            será gerado gráficos de acordo com os dados consultados no banco.
-                        </font>
+                        
                         {/* ssss
                         <Select options={[
                             { value: 'chocolate', label: 'Chocolate' },
@@ -634,7 +631,7 @@ export default function TelaPrincipal(props) {
                         ]}></Select> */}
                     </div>
                     <div id="grafico3" style={{
-                        width: "500px",
+                        width: "610px",
                         height: "300px",
                         display: "flex",
                         position: "relative"
@@ -646,7 +643,7 @@ export default function TelaPrincipal(props) {
                     </div>
 
                     <div id="grafico4" style={{
-                        width: "500px",
+                        width: "610px",
                         height: "300px",
                         display: "flex",
                         position: "relative"

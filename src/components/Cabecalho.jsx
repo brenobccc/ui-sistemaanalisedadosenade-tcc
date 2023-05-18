@@ -1,6 +1,8 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Cabecalho(props) {
+    const navigate = useNavigate();
     return (<div style={props.style}>
         <div id="head-nav" style={props.estiloNav}>
             <ul style={props.ul}>
@@ -18,8 +20,8 @@ export default function Cabecalho(props) {
                     fontFamily: 'sans-serif',
                     cursor: 'pointer'
                 }}>Comparar Universidades</li>
-                <li style={props.li}>Comparar Estados</li>
-                <li style={props.li}>Sobre</li>
+                {/* <li style={props.li}>Comparar Estados</li> */}
+                <li style={props.li} onClick={() =>navigate('/sobre')}>Sobre</li>
             </ul>
         </div>
         <div id="head-title" style={props.estiloTitulo}>

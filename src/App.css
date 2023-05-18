@@ -1,11 +1,24 @@
 body {
     margin: 0;
     padding: 0;
+    height: 100vh;
+    width: 100vw;
+    overflow-x: hidden;
 }
 
 .App {
-    height: 100vh;
-    width: 100vw;
-    min-width: 800;
-    min-height: 768;
+    margin: 0;
+    padding: 0;
 }
+
+/@media screen and (max-width: 800px) {
+    body {
+        height: 0vh;
+        width: 0vw;
+    }
+    
+    .App {
+        height: 100vh;
+        width: 100vw;
+    }
+} 

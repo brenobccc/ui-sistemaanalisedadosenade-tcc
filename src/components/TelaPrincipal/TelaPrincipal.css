@@ -3,6 +3,7 @@ html,
 body {
   height: 100%;
   margin: 0;
+  background-color: #e7e2e2;
 }
 
 /* .input-pers{
@@ -16,6 +17,7 @@ body {
   flex-direction: column;
   height: 100%;
   width: 100%;
+  min-width: 1200px;  
 }
 
 /* estilo do menu esquerdo */
@@ -116,7 +118,6 @@ body {
   height: 100%;
   background-color: #e7e2e2;
   overflow-y: auto;
-  /* barra de rolagem automática */
 }
 
 /* estilo do cabeçalho */
@@ -263,12 +264,15 @@ body {
 }
 
 #pc-content #grafico2 {
-  margin: 15px;
+  background-image: url(./dicas.svg);
+  background-size: 106%;
+  background-position: center;
+  background-repeat: no-repeat;
   height: 320px;
   width: 32%;
-  border-radius: 5px;
+  margin: 15px;
+  border-radius: 30px;
   box-sizing: border-box;
-  padding: 10px;
   text-align: center;
   background-color:#FFFFFF;
   overflow: hidden;
