@@ -2,6 +2,7 @@ import TelaPrincipal from "./components/TelaPrincipal/TelaPrincipal";
 import './App.css';
 import { BrowserRouter, Routes } from "react-router-dom";
 import { Route } from "react-router-dom";
+import Sobre from "./components/TelaPrincipal/Sobre";
 function App() {
   return (
     // <div className='app'>teste</div>
@@ -9,7 +10,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<TelaPrincipal/>}></Route>
-          <Route path="sobre" element={<h1>Página Sobre</h1>}></Route>
+          <Route path="sobre" element={<Sobre isSobre = {true}s/>}></Route>
         </Routes>
       </BrowserRouter>
     </div>
