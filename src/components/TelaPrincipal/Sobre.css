@@ -9,7 +9,7 @@
 
 #sobre-content{
     /* background-color: white; */
-    height: 1300px;
+    height: 2750px;
     width: 100%;
     margin: auto;
     margin-top: 20px;  
@@ -22,8 +22,20 @@
 
 #sobre-content .sobre-card{
     width: 90%;
-    height: 400px;
+    height: 1500px;
     border-radius: 15px;
     background-color: rgb(255, 255, 255);
     margin: 1px;
+}
+
+#enade-banner{
+    background-image: url(enade-banner.svg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+#saen-dicas{
+    background-image: url(saen-dicas.svg);
+    background-size: 100%;
+    background-repeat: no-repeat;
 }

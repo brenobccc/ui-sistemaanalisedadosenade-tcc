@@ -10,7 +10,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<TelaPrincipal/>}></Route>
-          <Route path="sobre" element={<Sobre isSobre = {true}s/>}></Route>
+          <Route path="sobre" element={<Sobre isSobre = {true}/>}></Route>
         </Routes>
       </BrowserRouter>
     </div>

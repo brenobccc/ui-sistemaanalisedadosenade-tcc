@@ -52,9 +52,13 @@ export default function Sobre(props) {
                 }}></Cabecalho>
 
             <div id="sobre-content"> 
-                <div className="sobre-card"></div>
-                <div className="sobre-card"></div>
-                <div className="sobre-card"></div>
+                <a target="_blank" style={{height: '550px'}} href="https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enade#:~:text=O%20Exame%20Nacional%20de%20Desempenho,geral%20e%20profissional%2C%20e%20o" className="sobre-card" id="enade-banner">
+
+                </a>
+                <div className="sobre-card" id="saen-dicas" style={{height: '2100px'}}>
+
+                </div>
+                {/* <div className="sobre-card"></div> */}
             </div>
 
         </div>
