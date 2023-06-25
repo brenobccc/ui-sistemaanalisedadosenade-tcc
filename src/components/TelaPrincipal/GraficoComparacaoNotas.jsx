@@ -57,9 +57,9 @@ export default function GraficoComparacaoNotas(props) {
         const nomeIes1 = props.nomeIes1
         const nomeIes2 = props.nomeIes2
 
-        axios.get(`https://api-enade-production.up.railway.app/analiseenade/consulta-dados-por-ano-municipio-area-nomeies?anoInicial=${anoInicial}&anoFinal=${anoFinal}&municipio1=${municipioIes1}&municipio2=${municipioIes2}&area=${area}&nomeies1=${nomeIes1}&nomeies2=${nomeIes2}`)
+        axios.get(`https://api-enade-analisedados-production.up.railway.app/analiseenade/consulta-dados-por-ano-municipio-area-nomeies?anoInicial=${anoInicial}&anoFinal=${anoFinal}&municipio1=${municipioIes1}&municipio2=${municipioIes2}&area=${area}&nomeies1=${nomeIes1}&nomeies2=${nomeIes2}`)
             .then(response => {
-                console.log(`https://api-enade-production.up.railway.app/analiseenade/consulta-dados-por-ano-municipio-area-nomeies?anoInicial=${anoInicial}&anoFinal=${anoFinal}&municipio1=${municipioIes1}&municipio2=${municipioIes2}&area=${area}&nomeies1=${nomeIes1}&nomeies2=${nomeIes2}`)
+                console.log(`https://api-enade-analisedados-production.up.railway.app/analiseenade/consulta-dados-por-ano-municipio-area-nomeies?anoInicial=${anoInicial}&anoFinal=${anoFinal}&municipio1=${municipioIes1}&municipio2=${municipioIes2}&area=${area}&nomeies1=${nomeIes1}&nomeies2=${nomeIes2}`)
 
                 console.log("codigo 1: " + JSON.stringify(response.data));
                 // setLabels(response.data[0]);
